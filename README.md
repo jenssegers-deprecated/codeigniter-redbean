@@ -34,4 +34,4 @@ Example
 	// Display the title
 	echo $leaflet->title;
 	
-You can still use the original R:: static object if you prefer.
+You can still use the original `R::` static object if you prefer.
