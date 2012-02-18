@@ -6,7 +6,14 @@ RedBean is an object-relation mapping (ORM) tool that allows you to objects (bea
 Installation
 ------------
 
-Place the files from the repository in their respective folders. RedBean will automatically use the database configuration from the config/database.php file.
+Place the files from the repository in their respective folders (or use spark). RedBean will automatically use the database configuration from the config/database.php file.
+
+Documentation
+-------------
+
+You can find the original RedBean documentation at: http://www.redbeanphp.com/manual/
+
+All calls made to this library will be passed on to the RedBean class, so all the original functions are still available.
 
 Example
 -------
