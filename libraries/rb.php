@@ -34,9 +34,23 @@ class RB {
      * the setup proces using CodeIgniter's database configuration: config/database.php
      */
     public function __construct() {
-        // get redbean
-        include (dirname(__FILE__) . '/../vendor/rb.php');
-        
+		// check if the original redbean file exists
+		if (!file_exists($redbean_path = dirname(__FILE__) . '/../vendor/rb.php')) {
+			show_error('The RedBean class file was not found.');
+		}
+		
+		// get original redbean file
+        include ($redbean_path);
+		
+		// does the redbean class exist?
+		if (!class_exists('R')) {
+            show_error('The RedBean class was not found.');
+        }
+		
+		if (!isset($db) or count($db) == 0) {
+            show_error('No database connection settings were found in the database config file.');
+        }
+		
         // get the database config file
         if (!defined('ENVIRONMENT') or !file_exists($file_path = APPPATH . 'config/' . ENVIRONMENT . '/database.php')) {
             if (!file_exists($file_path = APPPATH . 'config/database.php')) {
@@ -78,5 +92,9 @@ class RB {
     public function __call($name, $arguments) {
         return call_user_func_array(array('R', $name), $arguments);
     }
+	
+	public function __get($name) {
+		return R::$name;
+	}
 
 }
