@@ -47,10 +47,6 @@ class RB {
             show_error('The RedBean class was not found.');
         }
 		
-		if (!isset($db) or count($db) == 0) {
-            show_error('No database connection settings were found in the database config file.');
-        }
-		
         // get the database config file
         if (!defined('ENVIRONMENT') or !file_exists($file_path = APPPATH . 'config/' . ENVIRONMENT . '/database.php')) {
             if (!file_exists($file_path = APPPATH . 'config/database.php')) {
