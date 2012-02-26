@@ -1,9 +1,9 @@
 <?php
 /**
- * @name        CodeIgniter RedBean
- * @author        Jens Segers
- * @link        http://www.jenssegers.be
- * @license        MIT License Copyright (c) 2011 Jens Segers
+ * @name		CodeIgniter Base Model
+ * @author		Jens Segers
+ * @link		http://www.jenssegers.be
+ * @license		MIT License Copyright (c) 2012 Jens Segers
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
