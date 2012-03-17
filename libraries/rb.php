@@ -76,6 +76,9 @@ class RB {
             case 'sqlite' :
                 R::setup("sqlite:$db", $user, $pass);
                 break;
+            case 'postgre' :
+                R::setup("pgsql:host=$host;dbname=$db", $user, $pass);
+                break;
             default :
                 R::setup("$driver:host=$host;dbname=$db", $user, $pass);
         }
