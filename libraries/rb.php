@@ -72,6 +72,12 @@ class RB {
         $pass = $db[$active_group]['password'];
         $db = $db[$active_group]['database'];
         
+        // custom port
+        if(strstr($host, ':')) {
+            list($host, $port) = explode(':', $host);
+            $host = "$host;port=$port";
+        }
+        
         switch ($driver) {
             case 'sqlite' :
                 R::setup("sqlite:$db", $user, $pass);
@@ -92,6 +98,10 @@ class RB {
         return call_user_func_array(array('R', $name), $arguments);
     }
     
+	/**
+     * Magic get method that passes every property request to the R object
+     * @return mixed
+     */
     public function __get($name) {
         return R::$name;
     }
